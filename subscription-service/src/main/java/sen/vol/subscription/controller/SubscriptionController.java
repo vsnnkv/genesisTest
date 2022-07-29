@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import sen.vol.subscription.controller.dto.EmailRequestDTO;
+import sen.vol.subscription.service.HTTPResponseDTO;
 import sen.vol.subscription.service.SubscriptionService;
 
 @RestController
@@ -20,14 +21,16 @@ public class SubscriptionController {
     }
 
     @PostMapping("/subscribe")
-    public ResponseEntity<String> subscribeEmail(@RequestBody EmailRequestDTO emailRequestDTO){
+    public ResponseEntity subscribeEmail(@RequestBody EmailRequestDTO emailRequestDTO){
 
-        boolean successResult = subscriptionService.saveEmail(emailRequestDTO.getEmail());
-
-        if (successResult) {
-            return ResponseEntity.ok("E-mail додано");
-        }
-        return ResponseEntity.status(409).body("E-mail  вже є в базі данних");
+        HTTPResponseDTO<String> httpResponseDTO = subscriptionService.saveEmail(emailRequestDTO.getEmail());
+        return ResponseEntity.status(httpResponseDTO.getCode()).body(httpResponseDTO.getMessage());
+//        boolean successResult = subscriptionService.saveEmail(emailRequestDTO.getEmail());
+//
+//        if (successResult) {
+//            return ResponseEntity.ok("E-mail додано");
+//        }
+//        return ResponseEntity.status(409).body("E-mail  вже є в базі данних");
     }
 
     @GetMapping("/sendEmails")
