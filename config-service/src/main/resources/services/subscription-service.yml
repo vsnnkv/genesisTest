@@ -1,0 +1,29 @@
+#spring:
+  #Поміняти базу на h2?
+  #Чи тут взагалі потрібна дб??
+#  jpa:
+#    database: POSTGRESQL
+#    properties.hibernate.temp.use_jdbc_metadata_defaults: false
+#    hibernate:
+#      ddl-auto: create
+#    properties:
+#  datasource:
+#    platform: postgres
+#    url: jdbc:postgresql://localhost:5432/account_service_database
+#    username: postgres
+#    password: root
+#    driver-class-name: org.postgresql.Driver
+
+server:
+#  servlet:
+#    context-path: /subscription
+  port: 8082
+
+rabbitmq:
+  port: 5672
+  host: rabbitmq
+  username: guest
+  password: guest
+  listener:
+    direct:
+      default-requeue-rejected: true

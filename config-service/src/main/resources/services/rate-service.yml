@@ -1,0 +1,20 @@
+#spring:
+  #Поміняти базу на h2?
+  #Чи тут взагалі потрібна дб??
+#  jpa:
+#    database: POSTGRESQL
+#    properties.hibernate.temp.use_jdbc_metadata_defaults: false
+#    hibernate:
+#      ddl-auto: create
+#    properties:
+#  datasource:
+#    platform: postgres
+#    url: jdbc:postgresql://localhost:5432/account_service_database
+#    username: postgres
+#    password: root
+#    driver-class-name: org.postgresql.Driver
+
+server:
+  servlet:
+    context-path: /rate
+  port: 8081
