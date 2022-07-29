@@ -12,12 +12,13 @@ public class SubscriptionService {
 
     File emails = new File("email.txt");
 
-    public String saveEmail(String email){
+    public boolean saveEmail(String email){
          if (lookIfEmailInTheList(email)) {
-             return "Вказаний e-mail вже додано до розсилки";
+             return false;
+
          } else {
              saveEmailToFile(email);
-             return "E-mail додано";
+             return true;
          }
     }
     public List<String> getEmails(){
