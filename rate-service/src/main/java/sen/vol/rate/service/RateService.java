@@ -14,8 +14,17 @@ public class RateService {
         this.restTemplate = restTemplateBuilder.build();
     }
 
-    public RateResponceDTO getRateBtsToUah(){
-        String url = "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=uah";
-        return this.restTemplate.getForObject(url, RateResponceDTO.class);
+    public HTTPResponseDTO<String> getRateBtsToUah(){
+
+        try {
+            String url = "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=uah";
+            RateResponseDTO responseData = this.restTemplate.getForObject(url, RateResponseDTO.class);
+            if (responseData == null) {
+                return new HTTPResponseDTO<>("Помилка сервера", 500);
+            }
+            return new HTTPResponseDTO<>(String.valueOf(responseData.getBitcoin().getUah()));
+        } catch (Exception exception){
+            return new HTTPResponseDTO<>("Помилка сервера", 500);
+        }
     }
 }

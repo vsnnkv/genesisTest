@@ -11,8 +11,10 @@ import java.io.Serializable;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class BitcoinResponceDTO implements Serializable {
+public class RateResponseDTO implements Serializable {
 
-    private Long uah;
+    private BitcoinResponseDTO bitcoin;
 
 }
+
+

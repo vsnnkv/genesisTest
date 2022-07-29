@@ -21,7 +21,7 @@ public class SubscriptionController {
     }
 
     @PostMapping("/subscribe")
-    public ResponseEntity subscribeEmail(@RequestBody EmailRequestDTO emailRequestDTO){
+    public ResponseEntity<String> subscribeEmail(@RequestBody EmailRequestDTO emailRequestDTO){
 
         HTTPResponseDTO<String> httpResponseDTO = subscriptionService.saveEmail(emailRequestDTO.getEmail());
         return ResponseEntity.status(httpResponseDTO.getCode()).body(httpResponseDTO.getMessage());
