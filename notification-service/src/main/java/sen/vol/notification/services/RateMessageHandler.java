@@ -25,7 +25,7 @@ public class RateMessageHandler {
         byte[] body = message.getBody();
         String jsonBody = new String(body);
         ObjectMapper objectMapper = new ObjectMapper();
-        RateResponceDTO rateResponseDTO = objectMapper.readValue(jsonBody, RateResponceDTO.class);
+        RateResponseDTO rateResponseDTO = objectMapper.readValue(jsonBody, RateResponseDTO.class);
         System.out.println(rateResponseDTO);
 
         SimpleMailMessage mailMessage = new SimpleMailMessage();
@@ -34,7 +34,7 @@ public class RateMessageHandler {
 
         mailMessage.setSubject("Курс BTC до UAH");
         mailMessage.setText("курс BTC до UAH відповідно до данних сайту coingecko.com складає: "
-                + rateResponseDTO.getUah());
+                + rateResponseDTO.getPrice());
 
         try {
             javaMailSender.send(mailMessage);

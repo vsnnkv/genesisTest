@@ -1,7 +1,0 @@
-test@gmail.com
-test1@gmail.com
-test2@gmail.com
-test222@gmail.com
-test13333@gmail.com
-test13334@gmail.com
-test133345@gmail.com

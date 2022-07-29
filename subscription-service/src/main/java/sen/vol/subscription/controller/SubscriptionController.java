@@ -10,6 +10,8 @@ import sen.vol.subscription.controller.dto.EmailRequestDTO;
 import sen.vol.subscription.service.HTTPResponseDTO;
 import sen.vol.subscription.service.SubscriptionService;
 
+import java.io.IOException;
+
 @RestController
 public class SubscriptionController {
 
@@ -25,17 +27,12 @@ public class SubscriptionController {
 
         HTTPResponseDTO<String> httpResponseDTO = subscriptionService.saveEmail(emailRequestDTO.getEmail());
         return ResponseEntity.status(httpResponseDTO.getCode()).body(httpResponseDTO.getMessage());
-//        boolean successResult = subscriptionService.saveEmail(emailRequestDTO.getEmail());
-//
-//        if (successResult) {
-//            return ResponseEntity.ok("E-mail додано");
-//        }
-//        return ResponseEntity.status(409).body("E-mail  вже є в базі данних");
     }
 
     @GetMapping("/sendEmails")
-    public String testPath(){
-        return "Success";
+    public ResponseEntity<String> testPath() throws IOException {
+        HTTPResponseDTO<String> response = subscriptionService.createResponse();
+        return ResponseEntity.status(response.getCode()).body(response.getMessage());
     }
 
 }

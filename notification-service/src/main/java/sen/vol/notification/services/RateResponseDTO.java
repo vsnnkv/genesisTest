@@ -5,9 +5,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class RateResponceDTO {
+public class RateResponseDTO {
 
-    private Long uah;
+    private Long price;
 
     private String mail;
 }
