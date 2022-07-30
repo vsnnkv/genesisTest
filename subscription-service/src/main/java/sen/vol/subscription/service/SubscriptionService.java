@@ -111,6 +111,7 @@ public class SubscriptionService {
 
             return new HTTPResponseDTO<>("E-mailʼи відправлено");
         } catch (Exception exception){
+            exception.printStackTrace();
             return new HTTPResponseDTO<>("Помилка сервера", 500);
         }
     }

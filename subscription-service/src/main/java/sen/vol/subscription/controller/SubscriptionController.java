@@ -30,7 +30,7 @@ public class SubscriptionController {
     }
 
     @GetMapping("/sendEmails")
-    public ResponseEntity<String> testPath() throws IOException {
+    public ResponseEntity<String> sendEmails() throws IOException {
         HTTPResponseDTO<String> response = subscriptionService.createResponse();
         return ResponseEntity.status(response.getCode()).body(response.getMessage());
     }

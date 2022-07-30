@@ -9,6 +9,6 @@ import sen.vol.subscription.service.HTTPResponseDTO;
 @FeignClient(name = "rate-service")
 public interface RateServiceClient {
 
-    @RequestMapping(value = "/rate", method = RequestMethod.GET)
+    @RequestMapping(value = "/rate/", method = RequestMethod.GET)
     String getRateBtsToUah();
 }
